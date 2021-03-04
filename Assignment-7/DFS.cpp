@@ -9,7 +9,7 @@ void BFSrec(vector<int> adj[],bool visited[],int source){
     cout<<source<<endl;
     for(int i=0;i<adj[source].size();i++){
         if(visited[i]==false){
-            BFSrec(adj,visited,i);
+            BFSrec(adj,visited,adj[source][i]);
         }
     }
 }
