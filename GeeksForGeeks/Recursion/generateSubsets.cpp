@@ -1,11 +1,13 @@
 #include<bits/stdc++.h>
 using namespace std;
-void generateSubsets(string str,int count,string subsets) {
-        if(count >= str.length())
-            cout<<subsets<<" "<<endl;
-        generateSubsets(str,count,subsets+str[count]);
-        generateSubsets(str,count+1,subsets+str[count]); 
+void generateSubsets(string str,int count,string current) {
+        if(count ==  str.length()){
+            cout<<current<<" ";
+            return;
+        }
+        generateSubsets(str,count+1,current);
+        generateSubsets(str,count+1,current + str[count]);
 }
 int main() {
-    generateSubsets("ab",0,"");
+    generateSubsets("abc",-1,"");
 }
