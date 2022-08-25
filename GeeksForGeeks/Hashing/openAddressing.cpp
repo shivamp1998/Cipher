@@ -31,7 +31,7 @@ struct MyHash {
     bool insert(int key) {
         int i = key % cap;
         if(arr[i] != -1){
-            while(arr[i] != -1) {
+            while(arr[i] != -1 && arr[i]==-2 && arr[i]!=key) {
                 i = i++ % cap;
             }
         }
