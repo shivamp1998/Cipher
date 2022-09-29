@@ -3,7 +3,7 @@ using namespace std;
  
 void merge(int a[],int b[], int m,int n) {
     int i = 0 , j = 0;
-    int temp[m+n-1] = {0};
+    int temp[m + n-1] = {0};
     int k = 0;
     while(i < m && j < n) {
         if(a[i] > b[j]) {
