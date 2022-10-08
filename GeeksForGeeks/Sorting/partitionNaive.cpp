@@ -13,10 +13,13 @@ void partition (int arr[], int start, int end, int pivot) {
         }
         i++;
     }
+    for(int i=0;i<6;i++) {
+        cout<<temp[i]<<" ";
+    }
 }
 
 int main () {
-    int arr[] = {10,80,30,90,40,50,70};
-    partition(arr,0,6,30);
+    int arr[] = {5,13,6,9,12,11,18};
+    partition(arr,0,6,9);
     
 }
