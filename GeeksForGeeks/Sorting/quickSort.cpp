@@ -28,10 +28,6 @@ void quickSort (int arr[], int low, int high){
     }
 }
 
-
-
-
-
 int main() {
     int arr[] = {1,45,23,45,12,41,31};
     quickSort(arr,0,6);
