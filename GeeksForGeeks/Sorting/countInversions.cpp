@@ -1,6 +1,6 @@
 #include<bits/stdc++.h>
 using namespace std;
-void merge(int arr[],int l,int m, int r, int &count) {
+int merge(int arr[],int l,int m, int r) {
   int n1 = m - l + 1;
   int n2 = r - m;
   int a1[n1] = {0};
@@ -11,9 +11,9 @@ void merge(int arr[],int l,int m, int r, int &count) {
   for(int i=0;i<n2;i++) {
     a2[i] = arr[m+1+i];
   }
-  int i=0,j=0,k=l;
+  int i=0,j=0,k=l, count = 0;
   while(i < n1 && j < n2) {
-    if(a1[i] < a2[j]) {
+    if(a1[i] <= a2[j]) {
       arr[k] = a1[i];
       k++;
       i++;
@@ -21,7 +21,7 @@ void merge(int arr[],int l,int m, int r, int &count) {
       arr[k] = a2[j];
       j++;
       k++;
-      count++;
+      count = count + (n1 - i);
     }
   }
   while(i < n1) {
@@ -32,21 +32,22 @@ void merge(int arr[],int l,int m, int r, int &count) {
     arr[k] = a2[j];
     j++;k++;
   }
+  return count;
 }
 
 int mergeSort(int arr[], int l,int r) {
   int count = 0;
   if(l < r)  {
     int m = l + (r - l) / 2;
-    mergeSort(arr,l,m);
-    mergeSort(arr,m+1,r);
-    merge(arr,l,m,r,count);
+    count += mergeSort(arr,l,m);
+    count += mergeSort(arr,m+1,r); 
+    count += merge(arr,l,m,r);
   }
   return count;
 
 }
 
 int main() {
-  int a[10] = {2, 1, 4 ,6 ,2 , 6 ,2, 0, 8, 9};
-  cout<<mergeSort(a,0,9)<<endl;
+  int a[10] = {2, 3, 1, 5, 6};
+  cout<<mergeSort(a,0,4)<<endl;
 }
