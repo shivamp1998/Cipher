@@ -16,5 +16,8 @@ int main() {
         cin>>o.start>>o.end;
         a.push_back(o);
     }
+    for(int i=0;i<4;i++) {
+        cout<<a[i].start<<" "<<a[i].end<<endl;
+    }
     
 }
