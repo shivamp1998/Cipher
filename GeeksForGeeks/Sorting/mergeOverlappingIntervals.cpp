@@ -32,6 +32,5 @@ int main() {
     int ans = mergeInterval(a,4);
     for(int i=0;i<ans;i++) {
         cout<<a[i].start<<" "<<a[i].end<<" ";
-        cout<<endl;
     }
 }
